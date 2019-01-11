@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CTTU | Cadastro de Documentos</title>
+
+		<!-- Bootstrap -->
+		
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/estilo.css" rel="stylesheet">
+		</head>
+		
+  <body>
+        <div class="imgcontainer" align = "center">
+            <img src="cttu.jpg"alt ="Avatar" class = "avatar">
+        </div>
+        <form method ="POST" id = "cadastros">
+                <div class="container container-login" >
+                    <label for="number">Numero do Contrato</label>
+                    <input type="number" class="form-control" id="numcontrato" name="numcontrato" placeholder="Insira o N° do contrato">
+
+                    <label for="number">Objeto</label>
+                    <input type="text" class="form-control" id="objeto" name="objeto" placeholder="Insira o Objeto">
+
+                    <label for="text">GESTOR</label>
+                    <input type="text" class="form-control" id="gestor" name="gestor" placeholder="Insira o nome do gestor do contrato">
+                    <label for="text">Fiscal</label>
+                    <input type="text" class="form-control" id="fiscal" name="fiscal" placeholder="Insira o nome do fiscal do contrato">
+                    
+                    <label for="number">Data de assinatura</label>
+                    <input type="date" class="form-control" id="Dtassinatura" name="Dtassinatura" placeholder="Insira a data de assinatura do contrato">
+                   
+                    <script>	
+                        function HabiDsabi(){ 
+                            if(document.getElementById('habi').checked == true){ 
+                                    document.getElementById('envia').disabled = ""  } 
+                            if(document.getElementById('habi').checked == false){ 
+                                    document.getElementById('envia').disabled = "disabled"  }
+                        }
+                    </script>
+                        
+                    <label for="number">Com Aditivo</label>
+                    <input type="checkbox" name="habi" id="habi" onClick="HabiDsabi()">
+                    <label for="number">Numero de Aditivo</label>
+                    <input type="number" name="adtivo" id="envia" disabled>
+                
+                    <br>
+                   
+                    <label class="radio-inline"><input type="radio" name="CPF/CNPJ" value="CPF"> CPF
+                    <label class="radio-inline"><input type="radio" name="CPF/CNPJ" value="CNPJ"> CNPJ<br></label></label>
+                    
+                    <input type="number" class="form-control" id="CNPJCPF" name="CNPJCPF" placeholder="Insira o CPF/CNPJ (Apenas numeros)">
+
+                    
+                    <script type="text/javascript">
+                        function calcula(valcontrato,valormensal,parcela){
+                            var contrato = valcontrato.toString();
+                            var valmensal = valormensal.toString();
+                            var par = parcela.toString();
+                        var mult = contrato - par*valmensal;
+                        var valor =  mult.toString();
+                        document.getElementById("saldoatual").value = valor;
+                        }
+                    </script>
+                        <fieldset>
+                        <legend>Valores contrato</legend>
+                        <label for="number">Valor do contrato</label>
+                        <input type="number" step="0,01" class="form-control" id="valcontrato" name="valcontrato" onchange="calcula(this.value,numeroparcela.value,valormensal.value);" placeholder="Insira o Valor do contrato">
+
+                        <label for="number">Numero da Parcela</label>
+                        <input type="number" class="form-control" id="numeroparcela" name="numeroparcela" onchange="calcula(valcontrato.value,this.value,valormensal.value);" placeholder="Insira o numero da parcela">
+    
+                        <label for="number">Valor Mensal</label>
+                        <input type="number" step="0,01" class="form-control" id="valormensal" name="valormensal" onchange="calcula(valcontrato.value,this.value,numeroparcela.value);" placeholder="Insira o Valor da parcela do contrato">
+                    
+                        <input type="text" name="saldoatual" id="saldoatual" placeholder="Saldo atual" disabled>
+                        <!--
+                        <input type="text" name="Price" value="" id="Preco" placeholder="Preço do projeto">
+                        -->
+                        </fieldset>
+                        <label>Situação contratual:</label><br>
+                        <label class="radio-inline"><input type="radio" name="situacaoContratual" value="1"> Prorrogação
+                        <label class="radio-inline"><input type="radio" name="situacaoContratual" value="2"> Reajuste
+                        <label class="radio-inline"><input type="radio" name="situacaoContratual" value="3"> Repactuação<br></label></label>
+                    
+                    
+                </div>
+            </div>               
+        <div id="botoes" align ="center" >
+                <button type="submit"  class="btn btn-default" formaction="cadcontratos.php">Cadastrar</button>
+        </div>
+    </form>  
+</div>
+        
+        
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

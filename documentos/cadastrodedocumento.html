@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CTTU | Cadastro de Documentos</title>
+
+		<!-- Bootstrap -->
+		
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/estilo.css" rel="stylesheet">
+    </head>
+    <script>
+
+
+
+			function mostradiv(el){
+				if(el =='opt1'){
+					document.getElementById('formCI').style.display = 'block';
+					document.getElementById('formOficio').style.display = 'none';
+					document.getElementById('formOS').style.display = 'none';
+				}else if(el =='opt2'){
+					document.getElementById('formCI').style.display = 'none';
+					document.getElementById('formOficio').style.display = 'block';
+					document.getElementById('formOS').style.display = 'none';
+				}else if(el =='opt3'){
+					document.getElementById('formCI').style.display = 'none';
+					document.getElementById('formOficio').style.display = 'none';
+					document.getElementById('formOS').style.display = 'block';
+				}
+			}
+   
+    </script>
+  <body>
+			<div class="imgcontainer" align = "center">
+				<img src="cttu.jpg"alt ="Avatar" class = "avatar">
+			</div>
+			<div class="form-control" id="selecionaAssunto" align = "center">
+			<label> Tipo de documento </label>
+			<select id = "assunto" onchange="mostradiv(this.value)" class="form-control">
+			<option value = "opt1">C.I.</option>
+			<option  value = "opt2">Ofício</option>
+			<option value = "opt3">ORDEM DE SERVIÇO</option>
+			</select>
+			</div>
+			
+			<br>
+      <div class="container container-login">
+        <div class="page-header">
+          <h2>Cadastro de documentos</h2>
+          <p>Informe os dados e siga as informações</p>
+				</div>
+				<div class="form-group" id = "formCI" >
+					<h1>teste ci</h1>
+					<div class="row">
+							
+							<form method="post" id="formSenha">
+								
+								<div class="form-group">
+								<label for="number">Numero da CI</label>
+								<input type="number" class="form-control" id="numeroci" name="numeroci" placeholder="Insira o N° da CI">
+								</div>
+				
+								<div class="form-group">
+								<label for="">Data de Saída</label>
+								<input type="date" class="form-control" id="datasaida" name="datasaida" placeholder="Digite a Data de saída">
+								</div>
+
+								<div class="form-group">
+										<label for="">Assunto</label>
+										<input type="text" class="form-control" id="assuntoci" name="assuntoci" placeholder="Digite o assunto da CI">
+								</div>
+							</form>
+							
+				</div>	
+
+				<div class="form-group" id = "formOficio">
+						<h1>teste oficio</h1>
+
+				</div>
+				<div class="form-group" id = "formOS">
+						<h1>teste ordem de serviço</h1>
+
+				</div>
+
+
+        
+        
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
